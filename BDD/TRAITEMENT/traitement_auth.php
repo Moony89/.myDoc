@@ -9,7 +9,7 @@ try {
 
     $pdo = new PDO($attr, $user, $pass, $opts);
 
-    $sql = " SELECT * FROM `doctors` WHERE doctors.numAdeli = ".$id." ";
+    $sql = " SELECT * FROM `Doctors` WHERE doctors.numAdeli = ".$id." ";
 
     $query = $pdo->prepare($sql);
 
@@ -17,7 +17,7 @@ try {
         var_dump($doctors);die;
     if (($doctors['numAdeli'] === $id) && ($doctors['token'] === $token)) {
 
-        $sql = "UPDATE `doctors` SET `isVerified` = :isVerified, `token` = :token WHERE token = $token";
+        $sql = "UPDATE `Doctors` SET `isVerified` = :isVerified, `token` = :token WHERE token = $token";
 
 
         $token = bin2hex(random_bytes(16));

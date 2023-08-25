@@ -17,7 +17,7 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
 
     $pdo = new PDO($attr, $user, $pass, $opts);
 
-    $sql = " SELECT * FROM patients INNER JOIN doctors ON doctors.idDoctor = patients.idDoctor WHERE doctors.idDoctor = $idDoc ";
+    $sql = " SELECT * FROM Patients INNER JOIN Doctors ON Doctors.idDoctor = Patients.idDoctor WHERE Doctors.idDoctor = $idDoc ";
 
     $query = $pdo->query($sql);
 

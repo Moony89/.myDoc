@@ -1,5 +1,5 @@
 <?php
-$title = "Supprimer mon compte";
+$titre = "Supprimer mon compte";
 require '../INCLUDES/header.php';
 ?>
 

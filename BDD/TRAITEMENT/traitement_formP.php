@@ -15,14 +15,14 @@ if ((!empty($_POST['nameP'])) && (!empty($_POST['surnameP'])) && (!empty($_POST[
   (!empty($_POST['emailP'])) && (!empty($_POST['passwordP'])) && (!empty($_POST['phone']))) {
 
 
-  require_once '../connectBDD.php';
+    require_once "../connect_BDD.php";
 
-  $connexion = new PDO("mysql:host=$servername;dbname=$database;", $username, $password, $options);
+    $pdo = new PDO($attr, $user, $pass, $opts);
 
   $sql = 'INSERT INTO Patients(`nameP`, `surnameP`, `numSecuriteSociale`, `emailP`, `passwordP`, `role`, `phone`, `token`) 
       VALUES  (:nameP, :surnameP, :numSecuriteSociale, :emailP, :passwordP, :role, :phone, :token)';
 
-  $query = $connexion->prepare($sql);
+  $query = $pdo->prepare($sql);
 
   $query->bindValue(':nameP', $nameP, PDO::PARAM_STR);
   $query->bindValue(':surnameP', $surnameP, PDO::PARAM_STR);

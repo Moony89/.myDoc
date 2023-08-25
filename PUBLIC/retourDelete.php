@@ -1,5 +1,5 @@
 <?php
-    $title = "Compte supprimé";
+    $titre = "Compte supprimé";
     require '../INCLUDES/header.php';
 ?>
 

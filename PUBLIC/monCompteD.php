@@ -15,7 +15,7 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
 
     $pdo = new PDO($attr, $user, $pass, $opts);
 
-    $sql = " SELECT * FROM doctors WHERE doctors.idDoctor = $idDoc ";
+    $sql = " SELECT * FROM Doctors WHERE Doctors.idDoctor = $idDoc ";
 
     $query = $pdo->query($sql);
 

@@ -1,6 +1,8 @@
 <?php
 session_start();
-require '../connectBDD.php';
+require_once "../connect_BDD.php";
+
+$pdo = new PDO($attr, $user, $pass, $opts);
 
 
     if (isset($_SESSION['patient'])
@@ -10,7 +12,7 @@ require '../connectBDD.php';
 
         $sql = "SELECT * FROM Patients WHERE idPatient = $idPatient";
             
-        $query = $connexion->query($sql);
+        $query = $pdo->query($sql);
         $old_Infos_Patient = $query->fetch(PDO::FETCH_ASSOC);
         
 
@@ -20,7 +22,7 @@ require '../connectBDD.php';
         $phone = $old_Infos_Patient['phone'];
 
 
-        $query = $connexion->prepare("DELETE FROM Patients WHERE idPatient = :idPatient"); 
+        $query = $pdo->prepare("DELETE FROM Patients WHERE idPatient = :idPatient"); 
 
         $query->bindValue(':idPatient', $idPatient, PDO::PARAM_STR);
 

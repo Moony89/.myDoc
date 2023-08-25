@@ -16,7 +16,7 @@ require_once "../connect_BDD.php";
 
 $pdo = new PDO($attr, $user, $pass, $opts);
 
-$sql = "INSERT INTO rdv (idDoctor, idPatient, date, heure ) VALUES (:idDoc, :idPatient, :date, :heure)";
+$sql = "INSERT INTO RDV (idDoctor, idPatient, date, heure ) VALUES (:idDoc, :idPatient, :date, :heure)";
 
     $query = $pdo->prepare($sql);
 

@@ -23,7 +23,7 @@ try{
         $pdo = new PDO($attr, $user, $pass, $opts);
         
     
-        $sql = "UPDATE doctors SET 
+        $sql = "UPDATE Doctors SET 
         `nameD`=:nameD,
         `surnameD`= :surnameD,
         `numAdeli`= :numAdeli,

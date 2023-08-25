@@ -1,5 +1,5 @@
 <?php
-    $title = "Merci";
+    $titre = "Merci";
     require '../INCLUDES/header.php';
 ?>
 

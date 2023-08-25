@@ -1,6 +1,8 @@
 <?php
 session_start();
-require '../connectBDD.php';
+require_once "../connect_BDD.php";
+
+$pdo = new PDO($attr, $user, $pass, $opts);
 
 
 if (
@@ -17,7 +19,7 @@ if (
 
     try {
 
-        $query = $connexion->prepare("UPDATE Patients SET `nameP`=:nameP, `surnameP`=:surnameP, `numSecuriteSociale`=:numSecuriteSociale, `phone`=:phone WHERE idPatient = $idPatient");
+        $query = $pdo->prepare("UPDATE Patients SET `nameP`=:nameP, `surnameP`=:surnameP, `numSecuriteSociale`=:numSecuriteSociale, `phone`=:phone WHERE idPatient = $idPatient");
 
         $data = [
             ':nameP' => $nameP,
@@ -37,7 +39,7 @@ if (
     if ($result) {
 
 
-        $query = $connexion->prepare("SELECT nameP, surnameP, numSecuriteSociale, emailP, phone FROM Patients WHERE idPatient = $idPatient");
+        $query = $pdo->prepare("SELECT nameP, surnameP, numSecuriteSociale, emailP, phone FROM Patients WHERE idPatient = $idPatient");
 
         $query->execute();
 

@@ -1,14 +1,13 @@
 <?php
 session_start();
 
-$title = "Mon médecin";
-require_once '../INCLUDES/header.php';
+require_once "../BDD/connect_BDD.php";
 
-require_once '../BDD/connectBDD.php';
+$pdo = new PDO($attr, $user, $pass, $opts);
 
 $idPatient = $_SESSION['patient']['idPatient'];
 
-$query = $connexion->prepare('SELECT nameD, surnameD, numAdeli, speciality, emailD FROM `Doctors` 
+$query = $pdo->prepare('SELECT nameD, surnameD, numAdeli, speciality, emailD FROM `Doctors` 
 INNER JOIN `Patients` ON Doctors.idDoctor = Patients.idDoctor WHERE idPatient = :idPatient');
 
 $query->execute(array(':idPatient' => $idPatient));
@@ -23,16 +22,13 @@ if ($myDoc) {
         'speciality' => $myDoc['speciality'],
         'emailD' => $myDoc['emailD'],
     ];
+
 }
-
-?>
-
-<body>
-
-    <?php
+    require_once '../INCLUDES/header.php';
     require_once '../INCLUDES/menu.php';
+    $title = "Mon médecin";
     ?>
-
+<body>
     <main class="dashboardP">
 
         <div class="bgBtnListPatient">

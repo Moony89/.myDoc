@@ -35,7 +35,7 @@ if (empty($_POST['nameD']) || empty($_POST['surnameD']) || empty($_POST['numAdel
 
         $pdo = new PDO($attr, $user, $pass, $opts);
 
-        $sql = "INSERT INTO doctors (nameD, surnameD, numAdeli, emailD, passwordD, token, role) VALUES ( :nameD, :surnameD, :numAdeli, :emailD, :passwordD, :token, :doc)";
+        $sql = "INSERT INTO Doctors (nameD, surnameD, numAdeli, emailD, passwordD, token, role) VALUES ( :nameD, :surnameD, :numAdeli, :emailD, :passwordD, :token, :doc)";
 
         $query = $pdo->prepare($sql);
 

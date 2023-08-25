@@ -14,7 +14,7 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
 
     $pdo = new PDO($attr, $user, $pass, $opts);
 
-    $sql = " SELECT * FROM patients WHERE patients.idpatient = $idPatient ";
+    $sql = " SELECT * FROM Patients WHERE Patients.idpatient = $idPatient ";
 
     $query = $pdo->query($sql);
 
@@ -22,7 +22,7 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
 
     $titre = 'Fiche Patient';
 
-    $sql = "SELECT * FROM rdv WHERE $idPatient";
+    $sql = "SELECT * FROM RDV WHERE $idPatient";
 
     $query = $pdo->query($sql);
 

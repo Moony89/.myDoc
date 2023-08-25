@@ -8,11 +8,11 @@ $message = htmlspecialchars($_POST['message']);
 if (isset($_POST["J'envoie"])  && (!empty($_POST['nameC'])) && (!empty($_POST['emailC'])) && (!empty($_POST['message']))) {
     require_once '../connectBDD.php';
 
-  $connexion = new PDO("mysql:host=$servername;dbname=$database;", $username, $password, $options);
+    $pdo = new PDO("mysql:host=$servername;dbname=$database;", $username, $password, $options);
 
   $sql = 'INSERT INTO Contact(`nameC`,`emailC`, `message`) VALUES  (:nameC, :emailC, :message)';
 
-  $query = $connexion->prepare($sql);
+  $query = $pdo->prepare($sql);
 
   $query->bindValue(':nameC', $nameC, PDO::PARAM_STR);
   $query->bindValue(':emailC', $emailC, PDO::PARAM_STR);

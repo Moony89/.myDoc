@@ -1,13 +1,15 @@
 <?php
 
-require_once '../connectBDD.php';
+require_once "../connect_BDD.php";
+
+$pdo = new PDO($attr, $user, $pass, $opts);
 
 if(isset($_POST['connexion']) && !empty($_POST['emailP']) && !empty($_POST['passwordP'])){
 
     $emailP = filter_var($_POST['emailP'], FILTER_VALIDATE_EMAIL);
     $passwordP = $_POST['passwordP'];
 
-    $query = $connexion->prepare('SELECT * FROM Patients 
+    $query = $pdo->prepare('SELECT * FROM Patients 
         WHERE emailP = :emailP');
 
     $query->execute(array(':emailP'=>$emailP));

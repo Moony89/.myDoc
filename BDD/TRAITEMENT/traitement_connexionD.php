@@ -13,7 +13,7 @@ try {
 
     $pdo = new PDO($attr, $user, $pass, $opts);
 
-    $sql = "SELECT * FROM doctors WHERE numAdeli = :numAdeli";
+    $sql = "SELECT * FROM Doctors WHERE numAdeli = :numAdeli";
 
     $query = $pdo->prepare($sql);
 

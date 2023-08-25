@@ -14,14 +14,14 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
 
     $pdo = new PDO($attr, $user, $pass, $opts);
 
-    $sql = " SELECT * FROM rdv WHERE rdv.idDoctor = $idDoc ";
+    $sql = " SELECT * FROM RDV WHERE RDV.idDoctor = $idDoc ";
 
     $query = $pdo->query($sql);
 
     $rdvs = $query->fetchAll();
 
 
-    $sql = "SELECT * FROM patients INNER JOIN rdv ON rdv.idPatient = patients.idPatient ";
+    $sql = "SELECT * FROM Patients INNER JOIN RDV ON RDV.idPatient = Patients.idPatient ";
 
     $query = $pdo->query($sql);
 
