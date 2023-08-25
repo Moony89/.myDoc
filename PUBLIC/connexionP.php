@@ -1,37 +1,36 @@
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="./CSS/bootstrap.min-2.css">
-</head>
+<?php
+    $title = 'Connexion patient';
+    require_once '../INCLUDES/header.php';
+?>
 <body>
 
     <?php
         require '../INCLUDES/menu.php';
-        require '../INCLUDES/footer.php';
     ?>    
 
-    <form action="../BDD/traitementDocteur.php" method="POST">
+    <form class="connectP m-4" action="../BDD/TRAITEMENT/traitement_connexionP.php" method="POST">
         <fieldset>
-            <legend>Connexion des profesionels de la medecine :</legend>
+            <legend>Connexion Patient:</legend>
 
 
             <div class="form-group">
-            <label for="exampleInputEmail1" class="form-label mt-4">Votre Email</label>
-            <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            <label for="emailP" class="form-label mt-4">Votre Email</label>
+            <input type="email" name="emailP" class="form-control" id="exampleInputEmail1" placeholder="Email">
             </div>
             <div class="form-group">
-            <label for="pass1" class="form-label mt-4">Mot de passe</label>
-            <input type="password" name="pass1" class="form-control" id="pass1"  placeholder="Mot de passe">
+            <label for="passwordP" class="form-label mt-4">Mot de passe</label>
+            <input type="password" name="passwordP" class="form-control" id="passwordP"  placeholder="Mot de passe">
+            <p><a href="#">Mot de passe oublié?</a></p>
             </div>
 
-            <button type="submit" class="btn btn-primary">Connexion</button>
+            <button type="submit" name="connexion" class="btn btn-primary">Connexion</button>
         </fieldset>
     </form>
 
+    <?php
+        require '../INCLUDES/footer.php';
+    ?>
 
 </body>
 </html>

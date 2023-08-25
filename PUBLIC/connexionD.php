@@ -1,22 +1,19 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="./CSS/bootstrap.min-2.css">
-</head>
+<?php
+        $title = 'Connexion Professionnels';
+        require_once '../INCLUDES/header.php';
+
+    ?>  
+
 <body>
 
     <?php
-        require '../INCLUDES/menu.php';
-        require '../INCLUDES/footer.php';
+        require_once '../INCLUDES/menu.php';
 
     ?>    
 
-    <form action="../BDD/traitementDocteur.php" method="POST">
+    <form action="../BDD/traitement_connexionD.php" method="POST">
         <fieldset>
-            <legend>Connexion des professionels de la medecine :</legend>
+            <legend>Connexion Professionels de la medecine :</legend>
 
 
             <div class="form-group">
@@ -31,6 +28,10 @@
             <button type="submit" class="btn btn-primary">Connexion</button>
         </fieldset>
     </form>
+
+    <?php
+        require '../INCLUDES/footer.php';
+    ?>
 
 
 </body>

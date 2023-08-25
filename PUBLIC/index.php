@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" defer></script>
-    <link rel="stylesheet" href="../CSS/bootstrap.min-2.css">
-    <link rel="stylesheet" href="../CSS/style.css">
-</head>
+<?php
+$title = 'Accueil';
+require '../INCLUDES/header.php';
+?>
 
 <body>
     <?php
@@ -31,6 +23,7 @@
                 de tous vos documents et vous
                 permet ainsi d’avoir votre <span class="darkred">santé</span> à
                 portée de clic.</p>
+            <p>N'attendez plus, <span class="darkred">inscrivez-vous</span> en suivant le lien ci-dessous.</p>
         </div>
 
         <div class="imgHome">
@@ -38,8 +31,10 @@
         </div>
     </main>
     <div class="inscription">
-        <button type="button" class="btn btn-primary btn-lg">Je m'inscris!</button>
-        <p>Déjà un compte? <a href="#">Connectez-vous!</a></p>
+        <div class="m-5">
+            <button class="btn btn-lg btn-primary" type="button"><a href="./formD.php">Je suis un professionnel</a></button>
+            <button class="btn btn-lg btn-primary" type="button"><a href="./formP.php">Je suis un patient</a></button>
+        </div>
     </div>
 
 
