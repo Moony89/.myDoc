@@ -1,13 +1,10 @@
-
 <?php
-    $title = 'Connexion patient';
-    require_once '../INCLUDES/header.php';
-?>
-<body>
+$titre = 'Connexion Patient';
+require_once '../INCLUDES/header.php';
+require_once '../INCLUDES/menu.php';
 
-    <?php
-        require '../INCLUDES/menu.php';
-    ?>    
+?>
+<body> 
 
     <form class="connectP m-4" action="../BDD/TRAITEMENT/traitement_connexionP.php" method="POST">
         <fieldset>
@@ -33,4 +30,7 @@
     ?>
 
 </body>
-</html>
+<?php
+
+require_once '../INCLUDES/footer.php';
+?>

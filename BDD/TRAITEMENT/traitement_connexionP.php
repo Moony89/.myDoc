@@ -36,6 +36,7 @@ if(isset($_POST['connexion']) && !empty($_POST['emailP']) && !empty($_POST['pass
     }else{
 
         echo "<br>Identifiants invalides.";
+        //peaufiner le message pour l'utilisateur.
     }
 }
 

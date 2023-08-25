@@ -1,13 +1,11 @@
+
 <?php
-$title = 'Accueil';
-require '../INCLUDES/header.php';
+$titre = 'Acceuil';
+require_once '../INCLUDES/header.php';
+require_once '../INCLUDES/menu.php';
 ?>
 
 <body>
-    <?php
-    require '../INCLUDES/menu.php';
-    require '../INCLUDES/footer.php';
-    ?>
 
     <h1 class=".text-primary"> Bienvenue sur <span class="darkgreen">.myDoc</span></h1>
 
@@ -36,9 +34,12 @@ require '../INCLUDES/header.php';
             <button class="btn btn-lg btn-primary" type="button"><a href="./formP.php">Je suis un patient</a></button>
         </div>
     </div>
-
-
-
 </body>
+
+<?php
+
+require_once '../INCLUDES/footer.php';
+
+?>
 
 </html>

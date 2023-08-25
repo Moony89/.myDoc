@@ -1,20 +1,16 @@
 <?php
-$title = 'Inscription professionnel';
+$titre = 'Inscription Professionnel';
 require_once '../INCLUDES/header.php';
+require_once '../INCLUDES/menu.php';
+
 ?>
 
 <body>
 
-    <?php
-    require '../INCLUDES/menu.php';
-    require '../INCLUDES/footer.php';
-
-    ?>
-
     <main class="mainFormD">
-        <form class="formD" action="../BDD/traitementDocteur.php" method="POST">
+        <form class="formD" action="../BDD/TRAITEMENT/traitement_formD.php" method="POST">
             <fieldset>
-                <legend>Inscription professionnels de santé :</legend>
+                <legend>Inscription Professionnels de Santé :</legend>
                 <div class="form-group">
                     <label for="name" class="form-label mt-1">Votre nom</label>
                     <input type="text" name="name" class="form-control bg-primary-subtle" id="name" placeholder="Nom">
@@ -52,9 +48,10 @@ require_once '../INCLUDES/header.php';
 
     </main>
 
+    </body>
 
+<?php
+require_once '../INCLUDES/footer.php';
+?>
 
-
-</body>
-
-</html>
+    </html>

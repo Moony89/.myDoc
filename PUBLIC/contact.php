@@ -1,11 +1,7 @@
 <?php
-    $title = "Contact";
-    require_once '../INCLUDES/header.php';
-?>
-<body>
-<?php
-require '../INCLUDES/menu.php';
-require '../INCLUDES/footer.php';
+$titre = 'Contact';
+require_once '../INCLUDES/header.php';
+require_once '../INCLUDES/menu.php';
 ?>
 
 <h1 class=".text-primary"> Une question? Plus d' <span class="darkred">informations</span> ?</h1>
@@ -31,11 +27,13 @@ require '../INCLUDES/footer.php';
             <button type="submit" name="J'envoie" class="btn btn-primary btn-lg">J'envoie!</button>
         </form>
 
-    </div>
-    <div class="imgContact">
-        <img src="../IMG/contact_img.png" alt="Personne tapant au clavier.">
-    </div>
-</main>
+        </div>
+        <div class="imgContact">
+            <img src="../IMG/contact_img.png" alt="Personne tapant au clavier.">
+        </div>
+    </main>
 </body>
 
-</html>
+<?php
+    require_once '../INCLUDES/footer.php';
+?>

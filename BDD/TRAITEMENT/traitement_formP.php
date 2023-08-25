@@ -9,7 +9,7 @@ $emailP = filter_var($_POST['emailP'], FILTER_VALIDATE_EMAIL);
 $passwordP = password_hash($_POST['passwordP'], PASSWORD_DEFAULT);
 $phone = $_POST['phone'];
 
-$token = bin2hex(random_bytes((8)));
+$token = bin2hex(random_bytes((16)));
 
 if ((!empty($_POST['nameP'])) && (!empty($_POST['surnameP'])) && (!empty($_POST['numSecuriteSociale'])) &&
   (!empty($_POST['emailP'])) && (!empty($_POST['passwordP'])) && (!empty($_POST['phone']))) {
@@ -44,5 +44,5 @@ if ((!empty($_POST['nameP'])) && (!empty($_POST['surnameP'])) && (!empty($_POST[
     <strong>Oh snap!</strong> <a href="#" class="alert-link">Change a few things up</a> and try submitting again.
   </div>Tous les champs sont requis. Merci de compléter correctement le formulaire.';
 }
-
+//peaufiner le msg erreur utilisateur.
 ?>
