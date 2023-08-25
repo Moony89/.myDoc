@@ -9,7 +9,7 @@
       <ul class="navbar-nav me-auto">
         
         <li class="nav-item">
-          <a class="nav-link active" href="#">Home
+          <a class="nav-link active" href="../PUBLIC/index.php">Home
             <span class="visually-hidden">(current)</span>
           </a>
         </li>
@@ -17,10 +17,10 @@
           <a class="nav-link" href="#">Patient</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Doctor</a>
+          <a class="nav-link" href="../PUBLIC/mesPatients.php">Docteur</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="../PUBLIC/contact.php">Contact</a>
         </li>
         
       </ul>

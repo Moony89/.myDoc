@@ -1,21 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" defer></script>
-    <link rel="stylesheet" href="../CSS/bootstrap.min-2.css">
-    <link rel="stylesheet" href="../CSS/style.css">
-</head>
+<?php
+$titre = 'Acceuil';
+require_once '../INCLUDES/header.php';
+require_once '../INCLUDES/menu.php';
+?>
 
 <body>
-    <?php
-    require '../INCLUDES/menu.php';
-    require '../INCLUDES/footer.php';
-    ?>
 
     <h1 class=".text-primary"> Bienvenue sur <span class="darkgreen">.myDoc</span></h1>
 
@@ -38,12 +28,15 @@
         </div>
     </main>
     <div class="inscription">
-        <button type="button" class="btn btn-primary btn-lg">Je m'inscris!</button>
-        <p>Déjà un compte? <a href="#">Connectez-vous!</a></p>
+        <button type="button" class="btn btn-primary btn-lg m-4 ">Je m'inscris!</button> <br>
+        <a class="btn btn-primary m-4" href="formD.php" role="button">Un docteur</a>
+        <a class="btn btn-primary m-4" href="formP.php" role="button">Un patient</a>
+        <p>Déjà un compte? <a href="./connexionD.php">Connectez-vous!</a></p>
     </div>
-
-
-
 </body>
 
-</html>
+<?php
+
+require_once '../INCLUDES/footer.php';
+
+?>
