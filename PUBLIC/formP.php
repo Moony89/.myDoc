@@ -1,54 +1,65 @@
 
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscription</title>
-    <link rel="stylesheet" href="../CSS/bootstrap.css">
-</head>
+<?php
+    $title = 'Inscription patient';
+    require '../INCLUDES/header.php';
+?>
 <body>
 
     <?php
        require '../INCLUDES/menu.php';
-       require '../INCLUDES/footer.php';
-
     ?>    
 
-    <form action="../BDD/traitementPatient.php" method="POST">
+    <main class="mainFormP">
+        <form class="formP" action="../BDD/TRAITEMENT/traitement_formP.php" method="POST">
         <fieldset>
             <legend>Inscription des patients:</legend>
             <div class="form-group">
-            <label for="name" class="form-label mt-4">Votre nom</label>
-            <input type="text" name="name" class="form-control" id="name"  placeholder="Nom">
+            <label for="nameP" class="form-label mt-4">Votre nom</label>
+            <input type="text" name="nameP" class="form-control bg-primary-subtle" id="nameP"  placeholder="Nom">
             </div>
             <div class="form-group">
-            <label for="surname" class="form-label mt-4">Votre prénom</label>
-            <input type="text" name="surname" class="form-control" id="surname"  placeholder="Prénom">
+            <label for="surnameP" class="form-label mt-4">Votre prénom</label>
+            <input type="text" name="surnameP" class="form-control bg-primary-subtle" id="surnameP"  placeholder="Prénom">
             </div>
             <div class="form-group">
-            <label for="numSecuriteSocial" class="form-label mt-4">Votre numéro de Sécurité Social</label>
-            <input type="number" name="numSecuriteSocial" class="form-control" id="numSecuriteSocial"  placeholder="X XX XX XX XXX XXX">
+            <label for="numSecuriteSociale" class="form-label mt-4">Votre numéro de Securité Sociale</label>
+            <input type="number" name="numSecuriteSociale" class="form-control bg-primary-subtle" id="numSecuriteSociale"  placeholder="X XX XX XX XXX XXX">
             </div>
             <div class="form-group">
-            <label for="email" class="form-label mt-4">Votre Email</label>
-            <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+            <label for="emailP" class="form-label mt-4">Votre Email</label>
+            <input type="email" name="emailP" class="form-control bg-primary-subtle" id="emailP" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+            <label for="passwordP" class="form-label mt-4">Mot de passe</label>
+            <input type="password" name="passwordP" class="form-control bg-primary-subtle" id="passwordP"  placeholder="Mot de passe">
+            </div>
+            <!--
+            <div class="form-group">
+            <label for="passP1" class="form-label mt-4">Mot de passe</label>
+            <input type="password" name="passP1" class="form-control" id="passP1"  placeholder="Mot de passe">
             </div>
             <div class="form-group">
-            <label for="pass1" class="form-label mt-4">Mot de passe</label>
-            <input type="password" name="pass1" class="form-control" id="pass1"  placeholder="Mot de passe">
+            <label for="passP2" class="form-label mt-4">Verifier votre mot de passe </label>
+            <input type="password" name="passP2" class="form-control" id="passP2"  placeholder="Mot de passe">
             </div>
-            <div class="form-group">
-            <label for="pass2" class="form-label mt-4">Verifier votre mot de passe </label>
-            <input type="password" name="pass2" class="form-control" id="pass2"  placeholder="Mot de passe">
-            </div>
+            -->
             <div class="form-group">
             <label for="phone" class="form-label mt-4">Votre téléphone</label>
-            <input type="tel" name="phone" class="form-control" id="phone"  placeholder="XX XX XX XX XX">
+            <input type="tel" name="phone" class="form-control bg-primary-subtle" id="phone"  placeholder="XX XX XX XX XX">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Envoyer</button>
         </fieldset>
     </form>
+    <div class="imgFormP">
+            <img src="../IMG/inscription_img.png" alt="Image d'un formulaire d'inscription.">
+    </div>
+    </main>
+    
+
+    <?php
+        require '../INCLUDES/footer.php';
+    ?>
 
 
 </body>
