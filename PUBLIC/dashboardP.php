@@ -2,16 +2,11 @@
 session_start();
 
 $title = "Mon Compte";
+require_once '../INCLUDES/header.php';
+require_once '../INCLUDES/menu.php';
 
-require '../INCLUDES/header.php';
 ?>
-
 <body>
-
-    <?php
-    require_once '../INCLUDES/menu.php';
-    ?>
-
     <h1>Bienvenue <span class="darkred"><?= $_SESSION['patient']['surnameP'] . " " . $_SESSION['patient']['nameP'] ?></span></h1>
 
     <main class="dashboardP mb-5">

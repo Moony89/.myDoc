@@ -1,14 +1,13 @@
 <?php
     session_start();
-    require '../INCLUDES/header.php';
 
-?>
+    $titre = "Modifier mes informations";
+    require_once '../INCLUDES/header.php';
+    require_once '../INCLUDES/menu.php';
+    
+?>    
+
 <body>
-
-    <?php
-       require '../INCLUDES/menu.php';
-    ?>    
-
     <h1>Entrez vos informations puis validez le formulaire</h1>
 
     <form class="formP" action="../BDD/TRAITEMENT/update_profileP.php" method="POST">
@@ -35,7 +34,7 @@
     </form>
 
     <?php
-        require '../INCLUDES/footer.php';
+        require_once '../INCLUDES/footer.php';
     ?>
 
 

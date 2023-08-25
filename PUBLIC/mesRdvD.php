@@ -25,7 +25,7 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
 
     $query = $pdo->query($sql);
 
-    $patient = $query->fetchAll();
+    $patient = $query->fetch();
     }catch (PDOException $e) {
         throw new PDOException($e->getMessage(), (int)$e->getCode());
     }
@@ -71,6 +71,9 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
                         </td>
                         <td>
                             <?= $patient["nameP"] ?>
+                        </td>
+                        <td>
+                            <?= $patient["surnameP"] ?>
                         </td>
 
                     </tr>

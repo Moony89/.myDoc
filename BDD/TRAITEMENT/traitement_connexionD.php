@@ -1,4 +1,7 @@
 <?php
+session_start();
+    unset($_SESSION["patient"]);
+    unset($_SESSION["doctor"]);
 
 $numAdeli = $_POST['numAdeli'];
 $pass1 = $_POST['pass1'];
@@ -31,7 +34,7 @@ try {
             die("L'utilisateur et/ou le mot de passe est incorrect");
         }
         
-            session_start();
+            
 
             $_SESSION["doctor"] = [
                 "Adeli" => $doctor["numAdeli"],
@@ -41,7 +44,8 @@ try {
             ];
 
 
-        header("location:../../PUBLIC/mesPatients.php");
+        header("location:../../PUBLIC/dashboardD.php");
+
      } catch (PDOException $e) {
         throw new PDOException($e->getMessage(), (int)$e->getCode());
     }       

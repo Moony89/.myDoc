@@ -17,7 +17,7 @@
           <a class="nav-link" href="../PUBLIC/connexionP.php">Patient</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="../PUBLIC/mesPatients.php">Docteur</a> <!-- Renommer le fichier en Dashboard_Doctor -->
+          <a class="nav-link" href="../PUBLIC/connexionD.php">Docteur</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../PUBLIC/contact.php">Contact</a>
