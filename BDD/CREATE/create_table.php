@@ -39,7 +39,7 @@ $sql = " CREATE TABLE IF NOT EXISTS `Patients` (
      surnameP VARCHAR(50) NOT NULL,
      numSecuriteSociale VARCHAR(20) UNIQUE NOT NULL,
      groupeSanguin VARCHAR(20) NULL, 
-     emailP VARCHAR(150) NOT NULL, 
+     emailP VARCHAR(150) UNIQUE NOT NULL, 
      passwordP VARCHAR(150) NOT NULL, 
      role VARCHAR(20) NOT NULL,
      phone VARCHAR(20) NOT NULL,

@@ -1,9 +1,8 @@
 <?php
-session_start();
-unset($_SESSION["patient"]);
-unset($_SESSION["doctor"]);
-require_once "../connect_BDD.php";
 
+
+require_once "../connect_BDD.php";
+require_once "../security.php";
 $pdo = new PDO($attr, $user, $pass, $opts);
 
 if(isset($_POST['connexion']) && !empty($_POST['emailP']) && !empty($_POST['passwordP'])){
@@ -21,8 +20,10 @@ if(isset($_POST['connexion']) && !empty($_POST['emailP']) && !empty($_POST['pass
     if($patient && (password_verify($passwordP, $patient['passwordP']))){
 
         echo "<br>Vous êtes bien connecté à votre espace Patient";
+
+        session_start();
         
-        $_SESSION["patient"] = [
+        $_SESSION["USER"] = [
             "nameP" => $patient['nameP'],
             "surnameP" => $patient['surnameP'],
             "role" => $patient['role'],

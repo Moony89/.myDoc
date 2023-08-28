@@ -6,7 +6,7 @@ try{
 
     require_once "../connect_BDD.php";
 
-    $idDoc = $_SESSION["doctor"]["idDoctor"];
+    $idDoc = $_SESSION["USER"]["idDoctor"];
 
     $nameD = $_POST['nameD'];
     $surnameD = $_POST['surnameD'];

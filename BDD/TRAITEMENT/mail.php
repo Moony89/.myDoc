@@ -1,37 +1,41 @@
 <?php
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 
-require_once "../../INCLUDES/PHPMAILER/Exception.php";
-require_once "../../INCLUDES/PHPMAILER/PHPMailer.php";
-require_once "../../INCLUDES/PHPMAILER/SMTP.php";
+    use PHPMailer\PHPMailer\Exception;
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
 
-$mail = new PHPMailer(true);
+function sendMail($adress, $subject, $message){
 
-try{
-    $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    require_once "../../INCLUDES/PHPMAILER/Exception.php";
+    require_once "../../INCLUDES/PHPMAILER/PHPMailer.php";
+    require_once "../../INCLUDES/PHPMAILER/SMTP.php";
 
-    $mail->isSMTP();
-    $mail->Host = "localhost";
-    $mail->Port = 1025;
+    $mail = new PHPMailer(true);
 
-    $mail->CharSet = "utf-8";
+    try{
+        $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
-    $mail->addAddress("ljfermeture@gmail.com");
+        $mail->isSMTP();
+        $mail->Host = "localhost";
+        $mail->Port = 1025;
 
-    $mail->setFrom("lhuilejohan85@gmail.com");
+        $mail->CharSet = "utf-8";
 
-    $mail->Subject = "Lien de Verification ";
+        $mail->addAddress($adress);
 
-    $mail->Body = "Bonjour, Veuillez Cliquer sur le liens si dessous pour vadider votre compte";
+        $mail->setFrom("contact@myDoc.com");
 
-    $mail->send();
+        $mail->Subject = $subject;
 
-    echo "Message envoyé";
+        $mail->Body = $message;
 
-}
-catch(Exception){
+        $mail->send();
 
-    echo "Message non envoyé. Erreur: {$mail->ErrorInfo}";
+        
+
+    }
+    catch(Exception){
+
+        echo "Message non envoyé. Erreur: {$mail->ErrorInfo}";
+    }
 }

@@ -1,11 +1,5 @@
 <?php       
- use PHPMailer\PHPMailer\Exception;     
- use PHPMailer\PHPMailer\PHPMailer;   
- use PHPMailer\PHPMailer\SMTP;
 
-require_once "../../INCLUDES/PHPMAILER/Exception.php";
-require_once "../../INCLUDES/PHPMAILER/PHPMailer.php";
-require_once "../../INCLUDES/PHPMAILER/SMTP.php";
 require_once "../security.php";
 
 $nameD = protect($_POST['nameD']);
@@ -61,39 +55,18 @@ if (empty($_POST['nameD']) || empty($_POST['surnameD']) || empty($_POST['numAdel
         }catch (PDOException $e) {
             throw new PDOException($e->getMessage(), (int)$e->getCode());
         }
-      
-        $mail = new PHPMailer(true);
 
-        try{
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+        require_once "./mail.php";
 
-            $mail->isSMTP();
-            $mail->Host = "localhost";
-            $mail->Port = 1025;
-
-            $mail->CharSet = "utf-8";
-
-            $mail->addAddress("$emailD");
-
-            $mail->setFrom("lhuilejohan85@gmail.com");
-
-            $mail->isHTML();
-
-            $mail->Subject = "Lien de Verification ";
-
-            $mail->Body = "Bonjour, Dr $nameD Veuillez Cliquer sur le liens si dessous pour vadider votre compte
+        $adress = $emailD;
+        $subject = "Lien de Verification";
+        $message = "<h3>Bonjour, Dr $nameD Veuillez Cliquer sur le liens si dessous pour vadider votre compte
         
-             .myDoc/BDD/TRAITEMENT/traitement_auth.php?token=$token&id=$numAdeli";
+        <a href=https://localhost/.myDoc/BDD/TRAITEMENT/traitement_auth.php?token=$token&id=$numAdeli>ICI!!!</a></h3>";
 
-            $mail->send();
+        sendMail($adress, $subject, $message);
 
-            echo "Message envoyé";
 
-        }
-        catch(Exception){
-
-            echo "Message non envoyé. Erreur: {$mail->ErrorInfo}";
-        }
   header("location:../../PUBLIC/connexionD.php");
     }else{
         echo "Les mots de passe ne sont pas identiques";

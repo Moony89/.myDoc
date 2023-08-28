@@ -6,11 +6,11 @@ $pdo = new PDO($attr, $user, $pass, $opts);
 
 
 if (
-    isset($_SESSION['patient']) && isset($_POST['valider_modif']) && !empty($_POST['nameP']) && !empty($_POST['surnameP'])
+    isset($_SESSION['USER']) && isset($_POST['valider_modif']) && !empty($_POST['nameP']) && !empty($_POST['surnameP'])
     && !empty($_POST['numSecuriteSociale']) && !empty($_POST['phone'])
 ) {
 
-    $idPatient = $_SESSION['patient']['idPatient'];
+    $idPatient = $_SESSION['USER']['idPatient'];
 
     $nameP = strip_tags($_POST['nameP']);
     $surnameP = strip_tags($_POST['surnameP']);

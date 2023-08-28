@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION["doctor"]["roles"] != "DOC") {
+if ($_SESSION["USER"]["roles"] != "DOC") {
     header('location:./connexionD.php');
     exit();
 
@@ -10,7 +10,7 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
     require_once '../INCLUDES/header.php';
     require_once "../INCLUDES/menu.php";
 
-    $idDoc = $_SESSION["doctor"]["idDoctor"];
+    $idDoc = $_SESSION["USER"]["idDoctor"];
 
     try{
 

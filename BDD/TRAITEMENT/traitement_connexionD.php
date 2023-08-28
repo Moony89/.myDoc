@@ -1,17 +1,14 @@
 <?php
-session_start();
-    unset($_SESSION["patient"]);
-    unset($_SESSION["doctor"]);
 
-$numAdeli = $_POST['numAdeli'];
-$pass1 = $_POST['pass1'];
+require_once "../security.php";
+
+$numAdeli = protect($_POST['numAdeli']);
+$pass1 = protect($_POST['pass1']);
 
 if(isset($_POST['numAdeli'], $_POST['pass1']) && !empty($_POST['numAdeli']) && !empty($_POST['pass1'])) {
 
 try {
    
-
-
     require_once "../connect_BDD.php";
 
     $pdo = new PDO($attr, $user, $pass, $opts);
@@ -32,11 +29,10 @@ try {
     
         if(!password_verify($pass1, $doctor["passwordD"])){
             die("L'utilisateur et/ou le mot de passe est incorrect");
-        }
-        
-            
 
-            $_SESSION["doctor"] = [
+        }   session_start();
+
+            $_SESSION["USER"] = [
                 "Adeli" => $doctor["numAdeli"],
                 "roles" => $doctor["role"],
                 "name"  => $doctor["nameD"],

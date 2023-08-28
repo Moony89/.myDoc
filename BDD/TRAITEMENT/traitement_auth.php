@@ -9,16 +9,15 @@ try {
 
     $pdo = new PDO($attr, $user, $pass, $opts);
 
-    $sql = " SELECT * FROM `Doctors` WHERE doctors.numAdeli = ".$id." ";
+    $sql = "SELECT * FROM `doctors` WHERE `numAdeli` = $id";
 
-    $query = $pdo->prepare($sql);
+    $query = $pdo->query($sql);
 
     $doctors = $query->fetch();
-        var_dump($doctors);die;
+
     if (($doctors['numAdeli'] === $id) && ($doctors['token'] === $token)) {
 
-        $sql = "UPDATE `Doctors` SET `isVerified` = :isVerified, `token` = :token WHERE token = $token";
-
+        $sql = "UPDATE `Doctors` SET `isVerified` = :isVerified, `token` = :token WHERE `numAdeli` = $id";
 
         $token = bin2hex(random_bytes(16));
 
@@ -32,14 +31,14 @@ try {
 
         $query->execute($data);
 
-        if ($query) {
-            require_once "../../INCLUDES/header.php"
-?> <div class="alert alert-dismissible alert-success">
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
-            </div> <?php
-                }
+    //     // if ($query) {
+    //     //     require_once "../../INCLUDES/header.php"?>
+    //     //     <div class="alert alert-dismissible alert-success">
+    //     //         <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    //     //         <strong>Well done!</strong> You successfully read <a href="#" class="alert-link">this important alert message</a>.
+    //     //     </div> <?php
+    //             }
             }
-        } catch (PDOException $e) {
-            throw new PDOException($e->getMessage(), (int)$e->getCode());
-        }
+    } catch (PDOException $e) {
+        throw new PDOException($e->getMessage(), (int)$e->getCode());
+    }

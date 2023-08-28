@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-if ($_SESSION["doctor"]["roles"] != "DOC") {
+if ($_SESSION["USER"]["roles"] != "DOC") {
     header('location:./connexionD.php');
     exit();
 
 } else {
 
-    $idDoc = $_SESSION["doctor"]["idDoctor"];
+    $idDoc = $_SESSION["USER"]["idDoctor"];
 
     try{
 
@@ -30,15 +30,8 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
     require_once "../INCLUDES/menu.php";
     ?>
     <div class="dashboardD">
-    <div class="menu_dashboardD">
 
-    <a href="./mesPatients.php"><button type="button" class="btn btn-primary btn-lg ">Mes Patients</button></a>
-    <a href="./mesrdvD.php"><button type="button" class="btn btn-primary btn-lg">Mes RDV</button></a>
-    <a href="./monCompteD.php"><button type="button" class="btn btn-primary btn-lg active">Mon Compte</button></a>
-    <a href="./deconnexion.php"><button type="button" class="btn btn-primary btn-lg">Deconnexion</button></a>
-
-    </div>
-
+    <?php require_once "../INCLUDES/menu_aside_medecin.php"; ?>
     <div class="infoP">
 
             <h5>Nom: <?=$doctor["nameD"]?></h5>

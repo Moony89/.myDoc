@@ -1,13 +1,6 @@
 <?php
 session_start();
 
-use PHPMailer\PHPMailer\Exception;     
-use PHPMailer\PHPMailer\PHPMailer;   
-use PHPMailer\PHPMailer\SMTP;
-
-require_once "../../INCLUDES/PHPMAILER/Exception.php";
-require_once "../../INCLUDES/PHPMAILER/PHPMailer.php";
-require_once "../../INCLUDES/PHPMAILER/SMTP.php";
 require_once "../security.php";
 
 $nameP = protect($_POST['nameP']);
@@ -17,7 +10,7 @@ $emailP = protect(filter_var($_POST['emailP'], FILTER_VALIDATE_EMAIL));
 
 $token = bin2hex(random_bytes(16));
 
-$idDoc = $_SESSION["doctor"]["idDoctor"];
+$idDoc = $_SESSION["USER"]["idDoctor"];
 
 try{
 
@@ -41,43 +34,19 @@ $sql = "INSERT INTO Patients (nameP, surnameP, numSecuriteSociale, emailP, passw
 
     $query->execute();
 
-    $mail = new PHPMailer(true);
-    
-        try{
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+    require_once "./mail.php";
 
-            $mail->isSMTP();
-            $mail->Host = "localhost";
-            $mail->Port = 1025;
-
-            $mail->CharSet = "utf-8";
-
-            $mail->addAddress("$emailP");
-
-            $mail->setFrom("lhuilejohan85@gmail.com");
-
-            $mail->isHTML();
-
-            $mail->Subject = "Bienvenue sur myDoc; ";
-
-            $mail->Body = "Bonjour, $surnameP $nameP. 
+    $adress = $emailP;
+    $subject = "Bienvenue sur myDoc; ";
+    $message = "Bonjour, $surnameP $nameP. 
         
-                Bienvenue sur le site myDoc. Vous avez éte rajouté par votre medecin traitant.
+    Bienvenue sur le site myDoc. Vous avez éte rajouté par votre medecin traitant.
 
-                Vous pouvez vous connecter avec votre adresse mail et le mot de passe ci-dessous:
-        
-                                     Mot de passe: $pass";
+    Vous pouvez vous connecter avec votre adresse mail et le mot de passe ci-dessous:<br>
 
-            $mail->send();
+                         Mot de passe: $pass";
 
-            echo "Message envoyé";
-
-        }
-        catch(Exception){
-
-            echo "Message non envoyé. Erreur: {$mail->ErrorInfo}";
-        }
-
+    sendMail($adress, $subject, $message);
 
     header('location:../../PUBLIC/mesPatients.php');
 

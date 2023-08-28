@@ -5,7 +5,7 @@ require_once "../BDD/connect_BDD.php";
 
 $pdo = new PDO($attr, $user, $pass, $opts);
 
-$idPatient = $_SESSION['patient']['idPatient'];
+$idPatient = $_SESSION['USER']['idPatient'];
 
 $query = $pdo->prepare('SELECT nameD, surnameD, numAdeli, speciality, emailD FROM `Doctors` 
 INNER JOIN `Patients` ON Doctors.idDoctor = Patients.idDoctor WHERE idPatient = :idPatient');
@@ -15,7 +15,7 @@ $query->execute(array(':idPatient' => $idPatient));
 $myDoc = $query->fetch();
 
 if ($myDoc) {
-    $_SESSION['patient'] = [
+    $_SESSION['USER'] = [
         'nameD' => $myDoc['nameD'],
         'surnameD' => $myDoc['surnameD'],
         'numAdeli' => $myDoc['numAdeli'],
@@ -26,39 +26,28 @@ if ($myDoc) {
 }
     require_once '../INCLUDES/header.php';
     require_once '../INCLUDES/menu.php';
-    $title = "Mon médecin";
+    $titre = "Mon médecin";
     ?>
 <body>
     <main class="dashboardP">
 
-        <div class="bgBtnListPatient">
-            <div class="btnListPatient">
-                <button type="button" class="btn btnPatient btn-primary btn-lg"><a href="dashboardP.php">Mon compte</a></button>
-                <button type="button" class="btn btnPatient btn-primary btn-lg"><a href="docsP.php">Mes documents</a></button>
-                <button type="button" class="btn btnPatient btn-primary btn-lg"><a href="rdvsP.php">Mes RDVs</a></button>
-                <button type="button" class="btn btnPatient btn-warning btn-lg"><a href="monDoc.php">Mon médecin traitant</a></button>
-                <button type="button" class="btn btnPatient btn-primary btn-lg"><a href="update_profileP.php">Modifier mon profil</a></button>
-                <button type="button" class="btn btnPatient btn-primary btn-lg"><a href="confirm_deleteP.php">Supprimer mon compte</a></button>
-                <button type="button" class="btn btnPatient btn-primary btn-lg"><a href="../BDD/TRAITEMENT/traitement_deconnexion.php">Déconnexion</a></button>
-            </div>
-
-        </div>
+    <?php require_once "../INCLUDES/menu_aside_patient.php";?>
 
         <div class="affListPatient">
 
-            <p> Votre médecin traitant est le Docteur <span class="darkred"><?= $_SESSION['patient']['nameD'] . " " . $_SESSION['patient']['surnameD'] ?></span></p>
+            <p> Votre médecin traitant est le Docteur <span class="darkred"><?= $_SESSION['USER']['nameD'] . " " . $_SESSION['USER']['surnameD'] ?></span></p>
             <tr class="table-primary">
                 <th scope="row">Informations complémentaires</th><br>
                 <th scope="row">N° ADELI: </th>
-                <td><?= $_SESSION['patient']['numAdeli']?></td><br>
+                <td><?= $_SESSION['USER']['numAdeli']?></td><br>
             </tr>
             <tr class="table-light">
                 <th scope="row">Spécialité: </th>
-                <td><?= $_SESSION['patient']['speciality']?></td><br>
+                <td><?= $_SESSION['USER']['speciality']?></td><br>
             </tr>
             <tr class="table-light">
                 <th scope="row">Contact: </th>
-                <td><?= $_SESSION['patient']['emailD']?></td><br>
+                <td><?= $_SESSION['USER']['emailD']?></td><br>
             </tr>
         </div>
 

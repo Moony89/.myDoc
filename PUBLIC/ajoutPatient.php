@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if ($_SESSION["doctor"]["roles"] != "DOC") {
+if ($_SESSION["USER"]["roles"] != "DOC") {
     header('location:./connexionD.php');
     exit();
 } else {
@@ -12,7 +12,7 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
     require_once "../INCLUDES/menu.php";
 ?>
 
-    <h2>Bonjour, Dr <span class="darkred"><?= $_SESSION["doctor"]["name"] ?></span></h2>
+    <h2>Bonjour, Dr <span class="darkred"><?= $_SESSION["USER"]["name"] ?></span></h2>
 
     <form action="../BDD/TRAITEMENT/traitement_ajout_patient.php" method="POST">
         <fieldset>

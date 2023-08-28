@@ -2,7 +2,7 @@
 session_start();
 
 
-if ($_SESSION["doctor"]["roles"] != "DOC") {
+if ($_SESSION["USER"]["roles"] != "DOC") {
     header('location:./connexionD.php');
     exit();
 
@@ -36,20 +36,13 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
 
     <body>
 
-        <h2>Bonjour, Dr <span class="darkred"><?= $_SESSION["doctor"]["name"] ?></span></h2>
+        <h2>Bonjour, Dr <span class="darkred"><?= $_SESSION["USER"]["name"] ?></span></h2>
 
         <h3 class="bg-primary text-light"><?=$patients["nameP"]?></h3>
 
         <div class="dashboardD">
 
-            <div class="menu_dashboardD">
-
-                <a href="./mesPatients.php"><button type="button" class="btn btn-primary btn-lg active">Mes Patients</button></a>
-                <a href="./mesrdvD.php"><button type="button" class="btn btn-primary btn-lg">Mes RDV</button></a>
-                <a href="./monCompteD.php"><button type="button" class="btn btn-primary btn-lg">Mon Compte</button></a>
-                <a href="./deconnexion.php"><button type="button" class="btn btn-primary btn-lg">Deconnexion</button></a>
-
-            </div>
+        <?php require_once "../INCLUDES/menu_aside_medecin.php"; ?>
 
             <div class="infoP">
 
@@ -76,7 +69,7 @@ if ($_SESSION["doctor"]["roles"] != "DOC") {
                 <label for="rapport"><h4>Rapport :</h4></label>
                 </fieldset>
                 <fieldset>
-                <textarea name="rapport" id="" cols="80" rows="10"></textarea>
+                <textarea name="rapport" id="" cols="110" rows="10"></textarea>
                 </fieldset>
                 <button type="submit" class="btn btn-primary mt-4">Enregistrer</button>
                 

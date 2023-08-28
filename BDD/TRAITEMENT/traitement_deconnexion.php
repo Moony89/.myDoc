@@ -4,8 +4,8 @@
 
     //On supprime la variable
 
-    unset($_SESSION["patient"]);
-    unset($_SESSION["doctor"]);
+    unset($_SESSION["USER"]);
+    
 
     header("Location: ../../PUBLIC/index.php");
 

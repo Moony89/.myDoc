@@ -5,10 +5,10 @@ require_once "../connect_BDD.php";
 $pdo = new PDO($attr, $user, $pass, $opts);
 
 
-    if (isset($_SESSION['patient'])
+    if (isset($_SESSION['USER'])
     ) { 
 
-        $idPatient = $_SESSION['patient']['idPatient'];
+        $idPatient = $_SESSION['USER']['idPatient'];
 
         $sql = "SELECT * FROM Patients WHERE idPatient = $idPatient";
             
@@ -28,7 +28,7 @@ $pdo = new PDO($attr, $user, $pass, $opts);
 
         $result = $query->execute();
 
-            if($result || $_SESSION['patient']){
+            if($result || $_SESSION['USER']){
 
                 session_unset();
                 session_destroy();
