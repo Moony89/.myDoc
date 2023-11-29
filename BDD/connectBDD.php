@@ -6,7 +6,7 @@
             $password = '';
             $database = "myDoc";
 
-    
+
 
             $options =
                     [ 
